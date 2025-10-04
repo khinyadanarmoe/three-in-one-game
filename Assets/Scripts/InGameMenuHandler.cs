@@ -46,28 +46,26 @@ public class InGameMenuHandler : MonoBehaviour
     public void PauseGame()
     {
         isPaused = true;
-        // Don't use Time.timeScale for flying game - it interferes with FixedUpdate
-        // Time.timeScale = 0f; 
+        Time.timeScale = 0f; // Pause the game
 
         if (inGameMenuPanel != null)
         {
             inGameMenuPanel.SetActive(true); // Show the in-game menu
         }
-        Debug.Log("Game Paused - isPaused: " + isPaused);
+        Debug.Log("Game Paused - isPaused: " + isPaused + ", TimeScale: " + Time.timeScale);
     }
 
 
     public void ResumeGame()
     {
         isPaused = false;
-        // Don't use Time.timeScale for flying game
-        // Time.timeScale = 1f; 
+        Time.timeScale = 1f; // Resume the game
 
         if (inGameMenuPanel != null)
         {
             inGameMenuPanel.SetActive(false); // Hide the in-game menu
         }
-        Debug.Log("Game Resumed - isPaused: " + isPaused);
+        Debug.Log("Game Resumed - isPaused: " + isPaused + ", TimeScale: " + Time.timeScale);
     }
 
     public void RestartGame()
